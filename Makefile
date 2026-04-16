@@ -12,7 +12,10 @@ OBJS_PATH	= objs
 INC_PATH	= -I incl
 
 	### SOURCES FILES ###
-FILES		= main.c \
+FILES		= 	\
+				check_args.c \
+				error.c \
+				main.c \
 
 			  # OBJECT FILES
 
@@ -35,7 +38,7 @@ NL_TXT			= printf "\n"
 
 # RULES
 all:		tmp start $(NAME)
-			./ft_ping test
+
 start:
 			@$(START_TXT)
 

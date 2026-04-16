@@ -3,8 +3,7 @@
 
 int main(int ac, char **av)
 {
-	(void) ac;
-	(void) av;
-	printf("Hello World!\n");
+	ft_check_args(ac, av);
+	printf("Nice\n");
 	return (0);
 }
