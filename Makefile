@@ -13,9 +13,11 @@ INC_PATH	= -I incl
 
 	### SOURCES FILES ###
 FILES		= 	\
-				debug.c
 				check_args.c \
+				debug.c \
 				error.c \
+				free.c \
+				init_ping.c \
 				main.c \
 
 			  # OBJECT FILES

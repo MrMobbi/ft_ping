@@ -12,13 +12,22 @@
 # define MSG_ERR_MALLOC "Error: Malloc could not fing memory"
 
 typedef struct s_ping {
-	size_t	nb_option;
-	char	**option;
+	char	*option;
 	char	**buffer;
 } t_ping;
 
-t_ping	*ft_check_args(int ac, char **av);
+// ### CHECK_ARGS_C
+char	**ft_get_args(int ac, char **av);
 
+// ### DEBUG_C
+void	db_print_ping_buffer(char **buffer);
+
+// ### ERROR_C
 void	ft_error(char *str);
 
+// ### FREE_C
+void	ft_free_ping(t_ping *ping);
+
+// ### INIT_PING_C
+t_ping	*ft_init_ping(int ac, char **av);
 #endif
