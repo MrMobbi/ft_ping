@@ -13,6 +13,7 @@ INC_PATH	= -I incl
 
 	### SOURCES FILES ###
 FILES		= 	\
+				debug.c
 				check_args.c \
 				error.c \
 				main.c \
