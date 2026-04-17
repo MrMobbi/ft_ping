@@ -13,14 +13,13 @@
 
 typedef struct s_ping {
 	char	*option;
-	char	**buffer;
 } t_ping;
 
 // ### CHECK_ARGS_C
-char	**ft_get_args(int ac, char **av);
+void	ft_get_args(int ac, char **av);
 
 // ### DEBUG_C
-void	db_print_ping_buffer(char **buffer);
+void	db_pint_option(char *str);
 
 // ### ERROR_C
 void	ft_error(char *str);
