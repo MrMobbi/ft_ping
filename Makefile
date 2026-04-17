@@ -19,6 +19,8 @@ FILES		= 	\
 				free.c \
 				init_ping.c \
 				main.c \
+				option.c \
+				print.c \
 
 			  # OBJECT FILES
 
