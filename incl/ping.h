@@ -10,7 +10,7 @@
 
 // ### MESSAGE
 # define MSG_ERR_ONE_ARG "ping: usage error: Destination address required"
-# define MSG_ERR_MALLOC "Error: Malloc could not fing memory"
+# define MSG_ERR_MALLOC "Error: Malloc could not find memory"
 # define MSG_ERR_HELP_OPEN "Error: could not open help file"
 
 // ### VARIABLE
@@ -47,7 +47,8 @@ void	ft_free_ping(t_ping *ping);
 t_ping	*ft_init_ping(int ac, char **av);
 
 // ### OPTION_C
-char	*ft_get_option(int ac, char **av);
+void		ft_get_option(t_ping *ping, char **av, int index);
+t_option	*ft_lst_option_new(int index, char **av);
 
 // ### PRINT_C
 void ft_print_help(void);
