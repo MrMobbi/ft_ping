@@ -1,8 +1,10 @@
 
 #include "../incl/ping.h"
 
-static void	ft_check_option(char *str)
+static int	ft_check_option(char *str)
 {
+	if (str == NULL)
+		ft_error(MSG_ERR_WRONG_OPTION);
 	if (strcmp(str, "--help") && strcmp(str, "-h") == 0)
 		ft_print_help();
 	if (strlen(str) < 2)
@@ -13,6 +15,7 @@ static void	ft_check_option(char *str)
 	str++;
 	if (*str != '\0')
 		ft_error_unknow_option(*str);
+	return (0);
 }
 
 t_option	*ft_lst_option_new(int index, char **av)
@@ -21,13 +24,20 @@ t_option	*ft_lst_option_new(int index, char **av)
 	if (!nw)
 		ft_error(MSG_ERR_MALLOC);
 	nw->next = NULL;
-	ft_check_option(av[index]);
-	nw->c = av[index][1];
+	nw->kind = ft_check_option(av[index]);
 	nw->value = atoi(av[index + 1]);
 	printf("nw->value [%d]\n", nw->value);
 	if (!nw->value)
 		ft_error(MSG_ERR_MALLOC);
 	return (nw);
+}
+
+void	ft_lst_option_add(t_option *option, int index, char **av)
+{
+	t_option	*nw = ft_lst_option_new(index, av);
+	while (!option)
+		option = option->next;
+	option->next = nw;
 }
 
 void	ft_get_option(t_ping *ping, char **av, int index)

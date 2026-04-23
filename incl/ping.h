@@ -12,6 +12,7 @@
 # define MSG_ERR_ONE_ARG "ping: usage error: Destination address required"
 # define MSG_ERR_MALLOC "Error: Malloc could not find memory"
 # define MSG_ERR_HELP_OPEN "Error: could not open help file"
+# define MSG_ERR_WRONG_OPTION "Error: error option"
 
 // ### VARIABLE
 # define D_ALL_OPTION "cistv"
@@ -19,8 +20,10 @@
 
 // ### MACRO
 
+
+// ### TYPEDEF
 typedef struct s_option {
-	char			c;
+	int				kind;
 	int				value;
 	struct s_option	*next;
 } t_option;
@@ -29,6 +32,16 @@ typedef struct s_ping {
 	char			*destination;
 	struct s_option	*option;
 } t_ping;
+
+// ### ENUM
+enum e_kind {
+	OPTION_C = 67,
+	OPTION_I = 73,
+	OPTION_S = 83,
+	OPTION_T = 84,
+	OPTION_V = 86,
+};
+
 
 // ### CHECK_ARGS_C
 void	ft_get_args(int ac, char **av);
@@ -49,6 +62,7 @@ t_ping	*ft_init_ping(int ac, char **av);
 // ### OPTION_C
 void		ft_get_option(t_ping *ping, char **av, int index);
 t_option	*ft_lst_option_new(int index, char **av);
+void		ft_lst_option_add(t_option *head, int index, char **av);
 
 // ### PRINT_C
 void ft_print_help(void);
